@@ -1,0 +1,2 @@
+[![Build Status](https://travis-ci.org/lenileiro/postgresDB.svg?branch=develop)](https://travis-ci.org/lenileiro/postgresDB)
+[![Coverage Status](https://coveralls.io/repos/github/lenileiro/postgresDB/badge.svg?branch=develop)](https://coveralls.io/github/lenileiro/postgresDB?branch=develop)
