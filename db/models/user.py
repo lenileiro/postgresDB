@@ -1,7 +1,7 @@
 from datetime import datetime
 from random import randint
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import Base
+from ..model import Base
 from utils.validate_user import Validate as vl
 
 class UserModel:

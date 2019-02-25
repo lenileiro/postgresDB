@@ -1,6 +1,6 @@
 import json
-from db.user import UserModel
-from .base import BaseTest
+from db.models.user import UserModel
+from test.base import BaseTest
 
 
 class TestPostRequest(BaseTest):
