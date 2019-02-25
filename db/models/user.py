@@ -12,7 +12,6 @@ class UserModel:
     def insert_user(params):
             error = vl.init_data(params)
             if not error:
-                created_at = '%s' % (datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 hashed_pwd = generate_password_hash(params["password"])
 
                 national_id = Base.insert(
@@ -25,8 +24,7 @@ class UserModel:
                 isadmin=params["isadmin"],
                 phone=params["phone"],
                 passporturl=params["passporturl"],
-                password=hashed_pwd,
-                created_at=created_at
+                password=hashed_pwd
                 )
 
                 token = Token.generate_token(

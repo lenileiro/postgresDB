@@ -20,7 +20,7 @@ def create_users_table(cur):
             isadmin VARCHAR (6) NOT NULL,
             password VARCHAR (250) NOT NULL,
             passporturl VARCHAR (100) NOT NULL,
-            created_at TIMESTAMP);""")
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);""")
 
 def init_db(config=None):
     conn = connect_to_db()
