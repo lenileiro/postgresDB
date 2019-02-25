@@ -12,13 +12,25 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "False",
+                "isadmin": "True",
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
             }
-        response = UserModel.insert_user(user)
-        self.assertEqual(response["status"], 201)
+        result = UserModel.insert_user(user)
+        self.assertEqual(result["status"], 201)
+        self.assertIsInstance(result["status"], int)
+        self.assertIsInstance(result["data"], dict)
+        self.assertIsInstance(result["data"]["token"], str)
+        self.assertIsInstance(result["data"]["user"], dict)
+        self.assertIsInstance(result["data"]["user"]["national_id"], int)
+        self.assertIsInstance(result["data"]["user"]["firstname"], str)
+        self.assertIsInstance(result["data"]["user"]["lastname"], str)
+        self.assertIsInstance(result["data"]["user"]["othername"], str)
+        self.assertIsInstance(result["data"]["user"]["email"], str)
+        self.assertIsInstance(result["data"]["user"]["phone"], str)
+        self.assertIsInstance(result["data"]["user"]["passporturl"], str)
+        self.assertIsInstance(result["data"]["user"]["isadmin"], bool)
     
     def test_exist_account_creation(self):
         user = {

@@ -7,48 +7,49 @@ class Validate:
         try:
             if not isinstance(data['national_id'], int):
                 return {
-                         'message': "national id should be numbers",
+                         'message': 'national id should be numbers',
                          'status': 400
                        }
                        
             if Validate.is_email_valid(email=data["email"]):
                 return {
-                    "message": "email format is invalid",
-                    "status": 400
-                   }
+                        'message': 'email format is invalid',
+                        'status': 400
+                       }
 
             if Validate.check_password_format(password=data["password"]):
                    return {
-                    "message": "Password should more than 8 characters and less than 20",
-                    "status": 401
-                   }
+                            'message': 'Password should more than 8 characters and less than 20',
+                            'status': 401
+                          }
+
             if Validate.check_if_user_exists(data['national_id']):
                 return {
-                    "message": "The user already exists",
-                    "status": 409
+                    'message': 'The user already exists',
+                    'status': 409
                    }
                    
             return Validate.is_not_blank(
-                firstname=data["firstname"],
-                lastname=data["lastname"],
-                othername=data["othername"],
-                email=data["email"],
-                isadmin=data["isadmin"],
-                phone=data["phone"],
-                passporturl=data["passporturl"],
-                password=data["password"]
+                firstname=data['firstname'],
+                lastname=data['lastname'],
+                othername=data['othername'],
+                email=data['email'],
+                isadmin=data['isadmin'],
+                phone=data['phone'],
+                passporturl=data['passporturl'],
+                password=data['password']
                 )
 
         except KeyError as e:
             return {
-                     'message': f"{e} field is required",
+                     'message': f'{e} field is required',
                      'status': 400
                    }
         
         
     @staticmethod
     def is_not_blank(**kwargs):
-        '''checks if any required field is blank'''
+        """checks if any required field is blank"""
         for key, val in kwargs.items():
             if val.strip() == '':
                 return {
