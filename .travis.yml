@@ -28,8 +28,7 @@ env:
   global:
   - PGPORT=5433
   - DATABASE_URL="dbname='politico' user='admin' host='localhost' password='admin123'"
-  - PRIVATE_KEY='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDe6dbUwH/KrmlljA5FufjLWcqiiLNFTL9mwSMTkpMeD9FuuZxssxdzhbIZwYV3B1HEBJYjDIPv6zghl73u6wsuZNIaWXHXmp0Im/klH7p6yLhLXaRSWrlqOvFsnd9WPu44yIz655zaOTHYRHo9VZ2quq7vBBO8JvsFo8cAqSKdEdaCokinacm7N/fFzjQDe4/ZyHc7LioPdsSKnEQjh79ZVJu8bnSGeAKKdbMdmGeRtRiRgGhRiCHRPtOq2Y6M03Y4hV3cPtVywL7KFkOmWUnzff/w5fk9e/Z6k2R5tsKfPkkLyAOFXsIOXYxcexKlGVeL6AF93jUAZLvsKBUGzk2KlgCA2rJQcERJmZe27UdSyJfc1Ipm9Wb+00Wxynt18xIFoJYMQcJBznHzyUmQofOJ5hnsfV83194rAWzIUbpnJNj+ZKsnphpkHaTpp+Dx9LnK4czNlOcE7QMaHsLstKq++lYd8dC502UeG7xoLE1LKNpdGfiL5BUl6aQ5cNYb/5iPq4tFtu+H7AlR+RW7ZRdirnFeQXjh8KXBkkHMoiYj5YUBJNFmGQueqw4P5RM5QxxG7dOvbYzOAZ/WgUlk3S2XJmUh7L8+U8JwdHnnheki/BsnZylu0mF5G/2tAQxgFaHs2OoSxrMnJWLTVE/ntVs80aXxY8+G3uUvYnJQ4UsIYw== leiro@leiro'
-
+  - PRIVATE_KEY='my324567879865t'
 script:
     - coverage run --source=db/models -m pytest test && coverage report
 
