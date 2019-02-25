@@ -2,3 +2,8 @@
 ![Coveralls github](https://img.shields.io/coveralls/github/lenileiro/postgresDB.svg?style=for-the-badge)
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/lenileiro/postgresDB.svg?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/lenileiro/postgresDB.svg?style=for-the-badge)
+
+# Generate Keys
+    ``bash
+        $ ssh-keygen -t rsa -b 4096
+    ``
