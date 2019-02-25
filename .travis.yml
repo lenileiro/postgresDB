@@ -28,7 +28,7 @@ env:
   global:
   - PGPORT=5433
   - DATABASE_URL="dbname='politico' user='admin' host='localhost' password='admin123'"
-
+  - PRIVATE_KEY='my324567879865t'
 script:
     - coverage run --source=db/models -m pytest test && coverage report
 
