@@ -12,12 +12,12 @@ class Token:
                 'exp': datetime.utcnow()+ timedelta(minutes=6000),
                 'iat': datetime.utcnow()}
 
-            secret_key = "asdfg"
-            token = jwt.encode(payload, str(secret_key), algorithm='HS256')
-            return token.decode()
+            secret_key = os.getenv("PRIVATE_KEY")
+            token = jwt.encode(payload, str(secret_key), algorithm='HS256').decode('utf-8')
+            return token
 
     @staticmethod
     def decode_token(token):
-        secret_key = "asdfg"
+        secret_key = os.getenv("PRIVATE_KEY")
         payload = jwt.decode(token, secret_key, algorithms=['HS256'])
         return payload
