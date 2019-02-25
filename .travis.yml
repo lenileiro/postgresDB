@@ -1,0 +1,35 @@
+language: python
+python:
+    - "3.6"
+
+install:
+    - pip install -r requirements.txt
+
+env:
+  - DATABASE_URL="dbname='politico' user='admin' host='localhost' password='admin123'"
+  
+
+services:
+  - postgresql
+
+before_script:
+  - sudo -u postgres psql -c "CREATE SCHEMA IF NOT EXISTS politico;"
+  - sudo -u postgres psql -c "CREATE USER admin WITH PASSWORD 'admin123';"
+  - sudo -u postgres psql -c "ALTER USER admin WITH SUPERUSER;"
+
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+env:
+  global:
+  - PGPORT=5433
+  - DATABASE_URL="dbname='politico' user='admin' host='localhost' password='admin123'"
+
+script:
+    - coverage run --source=db/models -m pytest test && coverage report
+
+after_success:
+    - coveralls
