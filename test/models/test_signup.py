@@ -12,7 +12,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "True",
+                "isadmin": True,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -39,7 +39,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -54,7 +54,7 @@ class TestPostRequest(BaseTest):
                 "national_id": 32308961,
                 "firstname": "john",
                 "lastname": "Joe",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -70,7 +70,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "     ",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -86,7 +86,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -102,7 +102,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoegmail.com",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "123456789",
                 "passporturl": "https://demo.com/image.jpg"
@@ -118,7 +118,7 @@ class TestPostRequest(BaseTest):
                 "lastname": "Joe",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
-                "isadmin": "False",
+                "isadmin": False,
                 "phone": "+254724862149",
                 "password": "----",
                 "passporturl": "https://demo.com/image.jpg"

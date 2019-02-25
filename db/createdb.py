@@ -17,7 +17,7 @@ def create_users_table(cur):
             othername VARCHAR (100),
             email VARCHAR (100) NOT NULL,
             phone VARCHAR (100) NOT NULL,
-            isadmin VARCHAR (6) NOT NULL,
+            isadmin BOOLEAN NOT NULL,
             password VARCHAR (250) NOT NULL,
             passporturl VARCHAR (100) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);""")

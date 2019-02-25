@@ -10,7 +10,12 @@ class Validate:
                          'message': 'national id should be numbers',
                          'status': 400
                        }
-                       
+
+            if not isinstance(data['isadmin'], bool):
+                return {
+                         'message': 'isadmin should be a boolean',
+                         'status': 400
+                       }
             if Validate.is_email_valid(email=data["email"]):
                 return {
                         'message': 'email format is invalid',
@@ -34,7 +39,6 @@ class Validate:
                 lastname=data['lastname'],
                 othername=data['othername'],
                 email=data['email'],
-                isadmin=data['isadmin'],
                 phone=data['phone'],
                 passporturl=data['passporturl'],
                 password=data['password']
