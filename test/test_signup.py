@@ -37,8 +37,8 @@ class TestPostRequest(BaseTest):
     def test_account_creation_blank_value(self):
         user = {
                 "national_id": 32308961,
-                "firstname": "    ",
-                "lastname": "Joe",
+                "firstname": "john",
+                "lastname": "     ",
                 "othername": "smith",
                 "email": "johndoe@gmail.com",
                 "isadmin": "False",
@@ -55,6 +55,8 @@ class TestPostRequest(BaseTest):
                 "national_id": "32308961",
                 "firstname": "john",
                 "lastname": "Joe",
+                "othername": "smith",
+                "email": "johndoe@gmail.com",
                 "isadmin": "False",
                 "phone": "+254724862149",
                 "password": "123456789",
@@ -62,4 +64,36 @@ class TestPostRequest(BaseTest):
             }
         response = UserModel.insert_user(user)
         self.assertEqual(response["status"], 400)
+        self.assertIsInstance(response["message"], str)
+    
+    def test_account_creation_invalid_email(self):
+        user = {
+                "national_id": 32308961,
+                "firstname": "john",
+                "lastname": "Joe",
+                "othername": "smith",
+                "email": "johndoegmail.com",
+                "isadmin": "False",
+                "phone": "+254724862149",
+                "password": "123456789",
+                "passporturl": "https://demo.com/image.jpg"
+            }
+        response = UserModel.insert_user(user)
+        self.assertEqual(response["status"], 400)
+        self.assertIsInstance(response["message"], str)
+
+    def test_account_creation_invalid_password(self):
+        user = {
+                "national_id": 32308961,
+                "firstname": "john",
+                "lastname": "Joe",
+                "othername": "smith",
+                "email": "johndoe@gmail.com",
+                "isadmin": "False",
+                "phone": "+254724862149",
+                "password": "----",
+                "passporturl": "https://demo.com/image.jpg"
+            }
+        response = UserModel.insert_user(user)
+        self.assertEqual(response["status"], 401)
         self.assertIsInstance(response["message"], str)
