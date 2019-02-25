@@ -1,4 +1,5 @@
 import re
+from db.model import Base
 class Validate:
 
     @staticmethod
@@ -20,6 +21,11 @@ class Validate:
                    return {
                     "message": "Password should more than 8 characters and less than 20",
                     "status": 401
+                   }
+            if Validate.check_if_user_exists(data['national_id']):
+                return {
+                    "message": "The user already exists",
+                    "status": 409
                    }
                    
             return Validate.is_not_blank(
@@ -58,3 +64,8 @@ class Validate:
     def is_email_valid(email):
         if not re.match(r"^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$", email):
             return True
+    
+    @staticmethod
+    def check_if_user_exists(national_id):
+        user = Base.get('user', national_id=national_id)
+        return user
