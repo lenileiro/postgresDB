@@ -1,2 +1,3 @@
 [![Build Status](https://travis-ci.org/lenileiro/postgresDB.svg?branch=develop)](https://travis-ci.org/lenileiro/postgresDB)
 [![Coverage Status](https://coveralls.io/repos/github/lenileiro/postgresDB/badge.svg?branch=develop)](https://coveralls.io/github/lenileiro/postgresDB?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a8bb54d29a7a62e5c2f4/maintainability)](https://codeclimate.com/github/lenileiro/postgresDB/maintainability)
