@@ -1,8 +1,7 @@
 import os
 import jwt
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import serialization
 from datetime import datetime, timedelta
+
 
 class Token:
     @staticmethod
@@ -25,6 +24,6 @@ class Token:
 
     @staticmethod
     def decode_token(token):
-        secret_key = os.getenv("PUBLIC_KEY")
-        payload = jwt.decode(token, secret_key, algorithms=['RS256'])
+        secret_key = os.getenv("PRIVATE_KEY")
+        payload = jwt.decode(token, secret_key, algorithms=['HS256'])
         return payload
