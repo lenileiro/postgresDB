@@ -13,11 +13,11 @@ class Token:
                 'iat': datetime.utcnow()}
 
             secret_key = os.getenv("PRIVATE_KEY")
-            token = jwt.encode(payload, str(secret_key), algorithm='RS256').decode('utf-8')
+            token = jwt.encode(payload, str(secret_key), algorithm='HS256').decode('utf-8')
             return token
 
     @staticmethod
     def decode_token(token):
         secret_key = os.getenv("PUBLIC_KEY")
-        payload = jwt.decode(token, secret_key, algorithms=['RS256'])
+        payload = jwt.decode(token, secret_key, algorithms=['HS256'])
         return payload
