@@ -7,6 +7,7 @@ install:
 
 env:
   - DATABASE_URL="dbname='politico' user='admin' host='localhost' password='admin123'"
+  - PRIVATE_KEY='my324567879865t'
   
 
 services:
