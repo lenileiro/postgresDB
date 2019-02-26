@@ -20,7 +20,7 @@ class Token:
     @staticmethod
     def decode_token(token):
         secret_key = Token.public_secret_key()
-        payload = jwt.decode(token, secret_key, algorithms=['HS256'])
+        payload = jwt.decode(token, secret_key, algorithms=['RS256'])
         return payload
     
 
