@@ -12,8 +12,13 @@ class Token:
                 key: val,
                 'exp': datetime.utcnow()+ timedelta(minutes=6000),
                 'iat': datetime.utcnow()}
-
-            secret_key = os.getenv("PRIVATE_KEY")
+            
+            GoogPubKey = os.getenv("PRIVATE_KEY")     
+            GoogPubKey = GoogPubKey.replace('-', '+')
+            GoogPubKey = GoogPubKey.replace('_', '/')
+            len(GoogPubKey) % 4  # 0
+            secret_key = '-----BEGIN PRIVATE KEY-----\n' + GoogPubKey + '\n-----END PRIVATE KEY-----'
+            
             token = jwt.encode(payload, secret_key, algorithm='RS256').decode('utf-8')
             print(f'jwt_token {payload}')
             return token
