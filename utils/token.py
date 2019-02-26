@@ -14,7 +14,6 @@ class Token:
             
             secret_key = Token.private_secret_key()
             token = jwt.encode(payload, secret_key, algorithm='RS256').decode('utf-8')
-            print(f'jwt_token {payload}')
             return token
 
     @staticmethod
