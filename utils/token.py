@@ -6,22 +6,25 @@ from datetime import datetime, timedelta
 class Token:
     @staticmethod
     def generate_token(**kwargs):
-        for key, val in kwargs.items():
-            payload = {
-                key: val,
-                'exp': datetime.utcnow()+ timedelta(minutes=6000),
+        payload = {
+                'exp': datetime.utcnow()+ timedelta(minutes=1),
                 'iat': datetime.utcnow()}
-            
-            secret_key = Token.private_secret_key()
-            token = jwt.encode(payload, secret_key, algorithm='RS256').decode('utf-8')
-            return token
+
+        for key, val in kwargs.items():
+            payload[key] = val
+        
+        secret_key = Token.private_secret_key()
+        token = jwt.encode(payload, secret_key, algorithm='RS256').decode('utf-8')
+        return token
 
     @staticmethod
     def decode_token(token):
         secret_key = Token.public_secret_key()
-        payload = jwt.decode(token, secret_key, algorithms=['RS256'])
-        return payload
-    
+        try:
+            payload = jwt.decode(token, secret_key, algorithms=['RS256'])
+            return payload
+        except jwt.ExpiredSignatureError:
+            return []
 
     @staticmethod
     def private_secret_key():
