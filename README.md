@@ -5,5 +5,5 @@
 
 # Generate Keys
     ``bash
-        $ ssh-keygen -t rsa -b 4096
+        $ ./keygen.sh
     ``
